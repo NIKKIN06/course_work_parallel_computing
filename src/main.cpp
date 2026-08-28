@@ -1,24 +1,22 @@
 #include <crow.h>
 #include <stdio.h>
 
-bool check_ollama_status()
-{
+bool check_ollama_status() {
     return true;
 }
 
-int main()
-{
+int main() {
     crow::SimpleApp app;
 
     CROW_ROUTE(app, "/api/health")
-    ([]()
-     {
+    ([]() {
         crow::json::wvalue response;
 
         response["server_status"] = "OK";
         response["ollama_status"] = check_ollama_status();
 
-        return response; });
+        return response;
+    });
 
     app.port(8080).run();
 
