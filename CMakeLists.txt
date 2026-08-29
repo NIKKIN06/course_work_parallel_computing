@@ -46,7 +46,7 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(crow)
 
-add_executable(search_server src/main.cpp)
+add_executable(search_server src/main.cpp src/ThreadPool.cpp)
 
 target_link_libraries(search_server PRIVATE 
     Crow::Crow 
